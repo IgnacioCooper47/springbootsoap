@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="9ec8f3c4-5c54-4952-a379-509f7cb1d449" activeEnvironment="Default" name="demosoap" resourceRoot="" soapui-version="5.7.2" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config">
+    <con:settings/>
+    <con:interface xsi:type="con:WsdlInterface" id="2884f730-fac1-4a03-bed8-2d69fb8d3ffc" wsaVersion="NONE" name="vehiclePortSoap11" type="wsdl" bindingName="{http://springbootsoap.com/soap}vehiclePortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ws/vehicles.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <con:settings/>
+        <con:definitionCache type="TEXT" rootPart="http://localhost:8080/ws/vehicles.wsdl">
+            <con:part>
+                <con:url>http://localhost:8080/ws/vehicles.wsdl</con:url>
+                <con:content><![CDATA[
+<wsdl:definitions targetNamespace="http://springbootsoap.com/soap" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://springbootsoap.com/soap" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://springbootsoap.com/soap">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://springbootsoap.com/soap" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="addVehicleRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="vehicle" type="tns:vehicleDetails"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addVehicleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listVehiclesRequest">
+        <xs:complexType/>
+      </xs:element>
+      <xs:element name="listVehiclesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="vehicles" type="tns:vehicleDetails" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="searchVehicleByBrandRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="brand" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="searchVehicleByBrandResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="vehicles" type="tns:vehicleDetails" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="vehicleDetails">
+        <xs:sequence>
+          <xs:element name="brand" type="xs:string"/>
+          <xs:element name="model" type="xs:string"/>
+          <xs:element name="color" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="addVehicleRequest">
+    <wsdl:part element="tns:addVehicleRequest" name="addVehicleRequest"/>
+  </wsdl:message>
+  <wsdl:message name="addVehicleResponse">
+    <wsdl:part element="tns:addVehicleResponse" name="addVehicleResponse"/>
+  </wsdl:message>
+  <wsdl:message name="listVehiclesRequest">
+    <wsdl:part element="tns:listVehiclesRequest" name="listVehiclesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="listVehiclesResponse">
+    <wsdl:part element="tns:listVehiclesResponse" name="listVehiclesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="searchVehicleByBrandRequest">
+    <wsdl:part element="tns:searchVehicleByBrandRequest" name="searchVehicleByBrandRequest"/>
+  </wsdl:message>
+  <wsdl:message name="searchVehicleByBrandResponse">
+    <wsdl:part element="tns:searchVehicleByBrandResponse" name="searchVehicleByBrandResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="vehiclePort">
+    <wsdl:operation name="addVehicle">
+      <wsdl:input message="tns:addVehicleRequest" name="addVehicleRequest"/>
+      <wsdl:output message="tns:addVehicleResponse" name="addVehicleResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="listVehicles">
+      <wsdl:input message="tns:listVehiclesRequest" name="listVehiclesRequest"/>
+      <wsdl:output message="tns:listVehiclesResponse" name="listVehiclesResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="searchVehicleByBrand">
+      <wsdl:input message="tns:searchVehicleByBrandRequest" name="searchVehicleByBrandRequest"/>
+      <wsdl:output message="tns:searchVehicleByBrandResponse" name="searchVehicleByBrandResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="vehiclePortSoap11" type="tns:vehiclePort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="addVehicle">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="addVehicleRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addVehicleResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listVehicles">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="listVehiclesRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="listVehiclesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchVehicleByBrand">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="searchVehicleByBrandRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="searchVehicleByBrandResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="vehiclePortService">
+    <wsdl:port binding="tns:vehiclePortSoap11" name="vehiclePortSoap11">
+      <soap:address location="http://localhost:8080/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
+                ]]></con:content>
+                <con:type>http://schemas.xmlsoap.org/wsdl/</con:type>
+            </con:part>
+        </con:definitionCache>
+        <con:endpoints>
+            <con:endpoint>http://localhost:8080/ws</con:endpoint>
+        </con:endpoints>
+        <con:operation id="eb102b71-d03c-4898-b203-a3627867e5b5" isOneWay="false" action="" name="addVehicle" bindingOperationName="addVehicle" type="Request-Response" outputName="addVehicleResponse" inputName="addVehicleRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
+            <con:settings/>
+            <con:call id="34bbd6d7-a144-424f-af50-264d2f62b9a3" name="Request 1">
+                <con:settings>
+                    <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                </con:settings>
+                <con:encoding>UTF-8</con:encoding>
+                <con:endpoint>http://localhost:8080/ws</con:endpoint>
+                <con:request><![CDATA[
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://springbootsoap.com/soap">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <soap:addVehicleRequest>
+         <soap:vehicle>
+            <soap:brand>Toyota</soap:brand>
+            <soap:model>Corolla</soap:model>
+            <soap:color>Blue</soap:color>
+         </soap:vehicle>
+      </soap:addVehicleRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
+                ]]></con:request>
+                <con:credentials>
+                    <con:authType>No Authorization</con:authType>
+                </con:credentials>
+                <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                <con:jmsPropertyConfig/>
+                <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://springbootsoap.com/soap/vehiclePort/addVehicleRequest"/>
+                <con:wsrmConfig version="1.2"/>
+            </con:call>
+        </con:operation>
+        <con:operation id="20e7da70-1cb8-4502-9c6f-6a80aa72d4e7" isOneWay="false" action="" name="listVehicles" bindingOperationName="listVehicles" type="Request-Response" outputName="listVehiclesResponse" inputName="listVehiclesRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
+            <con:settings/>
+            <con:call id="76846fb8-abf3-46e0-b6fe-a199e23f0b77" name="Request 1">
+                <con:settings>
+                    <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                </con:settings>
+                <con:encoding>UTF-8</con:encoding>
+                <con:endpoint>http://localhost:8080/ws</con:endpoint>
+                <con:request><![CDATA[
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://springbootsoap.com/soap">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <soap:listVehiclesRequest/>
+   </soapenv:Body>
+</soapenv:Envelope>
+                ]]></con:request>
+                <con:credentials>
+                    <con:authType>No Authorization</con:authType>
+                </con:credentials>
+                <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                <con:jmsPropertyConfig/>
+                <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://springbootsoap.com/soap/vehiclePort/listVehiclesRequest"/>
+                <con:wsrmConfig version="1.2"/>
+            </con:call>
+        </con:operation>
+        <con:operation id="4d4ed39d-8313-4403-81ed-587bfcf9060e" isOneWay="false" action="" name="searchVehicleByBrand" bindingOperationName="searchVehicleByBrand" type="Request-Response" outputName="searchVehicleByBrandResponse" inputName="searchVehicleByBrandRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
+            <con:settings/>
+            <con:call id="5f64aa2a-41f3-4e01-8e2a-d849c9a73e2d" name="Request 1">
+                <con:settings>
+                    <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                </con:settings>
+                <con:encoding>UTF-8</con:encoding>
+                <con:endpoint>http://localhost:8080/ws</con:endpoint>
+                <con:request><![CDATA[
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://springbootsoap.com/soap">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <soap:searchVehicleByBrandRequest>
+         <soap:brand>Toyota</soap:brand>
+      </soap:searchVehicleByBrandRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
+                ]]></con:request>
+                <con:credentials>
+                    <con:authType>No Authorization</con:authType>
+                </con:credentials>
+                <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                <con:jmsPropertyConfig/>
+                <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://springbootsoap.com/soap/vehiclePort/searchVehicleByBrandRequest"/>
+                <con:wsrmConfig version="1.2"/>
+            </con:call>
+        </con:operation>
+    </con:interface>
+    <con:properties/>
+    <con:wssContainer/>
+    <con:oAuth2ProfileContainer/>
+    <con:oAuth1ProfileContainer/>
+    <con:sensitiveInformation/>
+</con:soapui-project>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://springbootsoap.com/soap" targetNamespace="http://springbootsoap.com/soap" elementFormDefault="qualified">
+    <!-- Request and Response for adding a vehicle -->
+    <xs:element name="addVehicleRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="vehicle" type="tns:vehicleDetails"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="addVehicleResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Request and Response for listing all vehicles -->
+    <xs:element name="listVehiclesRequest">
+        <xs:complexType/>
+    </xs:element>
+    <xs:element name="listVehiclesResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="vehicles" type="tns:vehicleDetails" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Request and Response for searching vehicles by brand -->
+    <xs:element name="searchVehicleByBrandRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="brand" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="searchVehicleByBrandResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="vehicles" type="tns:vehicleDetails" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Vehicle details complex type -->
+    <xs:complexType name="vehicleDetails">
+        <xs:sequence>
+            <xs:element name="brand" type="xs:string"/>
+            <xs:element name="model" type="xs:string"/>
+            <xs:element name="color" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
