@@ -146,8 +146,8 @@
    <soapenv:Body>
       <soap:addVehicleRequest>
          <soap:vehicle>
-            <soap:brand>Toyota</soap:brand>
-            <soap:model>Corolla</soap:model>
+            <soap:brand>Honda</soap:brand>
+            <soap:model>xr</soap:model>
             <soap:color>Blue</soap:color>
          </soap:vehicle>
       </soap:addVehicleRequest>
@@ -201,7 +201,7 @@
    <soapenv:Header/>
    <soapenv:Body>
       <soap:searchVehicleByBrandRequest>
-         <soap:brand>Toyota</soap:brand>
+         <soap:brand>Honda</soap:brand>
       </soap:searchVehicleByBrandRequest>
    </soapenv:Body>
 </soapenv:Envelope>
